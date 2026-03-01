@@ -25,8 +25,27 @@ app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec, {
 
 app.use('/v1/holidays', holidayRoutes);
 
+const formatUptime = (seconds) => {
+    const days = Math.floor(seconds / 86400);
+    const hours = Math.floor((seconds % 86400) / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    const secs = Math.floor(seconds % 60);
+
+    const parts = [];
+    if (days > 0) parts.push(`${days}d`);
+    if (hours > 0) parts.push(`${hours}h`);
+    if (minutes > 0) parts.push(`${minutes}m`);
+    if (secs > 0 || parts.length === 0) parts.push(`${secs}s`);
+
+    return parts.join(' ');
+};
+
 app.get('/health', (req, res) => {
-    res.json({ status: 'ok', timestamp: new Date().toISOString(), uptime: process.uptime() });
+    res.json({
+        status: 'ok',
+        timestamp: new Date().toISOString(),
+        uptime: formatUptime(process.uptime())
+    });
 });
 
 app.get('/', (req, res) => {
