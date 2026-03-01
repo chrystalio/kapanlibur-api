@@ -1,5 +1,5 @@
 const { loadHolidays } = require('../utils/dataParser');
-const { formatDate, parseDate, isWeekend, daysBetween } = require("../utils/dateHelpers")
+const { formatDate, parseDate, daysBetween } = require('../utils/dateHelpers');
 
 const generateSuggestions = (year = new Date().getFullYear(), maxLeaveDays = 5) => {
     const allHolidays = loadHolidays();
@@ -45,7 +45,7 @@ const generateSuggestions = (year = new Date().getFullYear(), maxLeaveDays = 5) 
         return efficiencyB - efficiencyA;
     });
 
-    return suggestions;
+    return suggestions.filter(s => s.leave_days_required > 0);
 }
 
 const isHolidayNearWeekend = (holiday) => {
@@ -124,7 +124,10 @@ const findHolidayBridges = (holidays) => {
     }
 
     return bridges;
-}
+};
 
-
-generateSuggestions(2024, 5)
+module.exports = {
+    generateSuggestions,
+    isHolidayNearWeekend,
+    findHolidayBridges
+};
