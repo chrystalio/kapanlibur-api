@@ -1,5 +1,7 @@
 const express = require('express');
 const helmet = require('helmet');
+const swaggerUi = require('swagger-ui-express');
+const swaggerSpec = require('./config/swagger');
 const holidayRoutes = require('./routes/holidays');
 const requestLogger = require('./middleware/requestLogger');
 const { rateLimiter } = require('./middleware/rateLimiter');
@@ -16,6 +18,11 @@ app.use(requestLogger);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec, {
+    customSiteTitle: 'KapanLibur API Docs',
+    customCss: '.swagger-ui .topbar { display: none }'
+}));
+
 app.use('/v1/holidays', holidayRoutes);
 
 app.get('/health', (req, res) => {
@@ -28,6 +35,7 @@ app.get('/', (req, res) => {
         version: '1.0.0',
         description: 'API untuk informasi hari libur nasional Indonesia',
         author: 'Chrystalio (Kristoff)',
+        documentation: '/docs',
         endpoints: {
             holidays: '/v1/holidays',
             nextHoliday: '/v1/holidays/next',
