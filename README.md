@@ -12,6 +12,7 @@ RESTful API for Indonesian national holiday data including national holidays, re
 - Rate limiting (100 req / 15 minutes)
 - Security headers (Helmet)
 - Pre-commit hooks (ESLint)
+- Interactive API documentation (Swagger UI)
 
 ## Project Structure
 
@@ -19,7 +20,8 @@ RESTful API for Indonesian national holiday data including national holidays, re
 kapanlibur-api/
 ├── src/
 │   ├── config/
-│   │   └── index.js
+│   │   ├── index.js
+│   │   └── swagger.js
 │   ├── controllers/
 │   │   └── holidayController.js
 │   ├── data/
@@ -64,6 +66,15 @@ npm start
 
 Server runs on port 3000 by default. Configure with `PORT` environment variable.
 
+## API Documentation
+
+Interactive API documentation is available via **Swagger UI**:
+
+- **Production**: https://kapanliburapi.kristoff.my.id/docs
+- **Development**: http://localhost:3000/docs
+
+The documentation includes all endpoints, request/response schemas, and examples you can try directly from the browser.
+
 ## Environment Variables
 
 ```bash
@@ -72,6 +83,8 @@ NODE_ENV=development
 ```
 
 ## API Endpoints
+
+Full interactive documentation with examples available at `/docs`
 
 ### Get All Holidays
 ```
