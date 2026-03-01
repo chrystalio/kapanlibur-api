@@ -346,5 +346,155 @@
     "day": "Jumat",
     "name": "Kelahiran Yesus Kristus",
     "is_joint": false
+  },
+  {
+    "date": "2026-01-01",
+    "day": "Kamis",
+    "name": "Tahun Baru 2026 Masehi",
+    "is_joint": false
+  },
+  {
+    "date": "2026-01-16",
+    "day": "Jumat",
+    "name": "Isra Mikraj Nabi Muhammad S.A.W.",
+    "is_joint": false
+  },
+  {
+    "date": "2026-02-16",
+    "day": "Senin",
+    "name": "Cuti Bersama Tahun Baru Imlek 2577 Kongzili",
+    "is_joint": true
+  },
+  {
+    "date": "2026-02-17",
+    "day": "Selasa",
+    "name": "Tahun Baru Imlek 2577 Kongzili",
+    "is_joint": false
+  },
+  {
+    "date": "2026-03-18",
+    "day": "Rabu",
+    "name": "Cuti Bersama Hari Suci Nyepi (Tahun Baru Saka 1948)",
+    "is_joint": true
+  },
+  {
+    "date": "2026-03-19",
+    "day": "Kamis",
+    "name": "Hari Suci Nyepi (Tahun Baru Saka 1948)",
+    "is_joint": false
+  },
+  {
+    "date": "2026-03-20",
+    "day": "Jumat",
+    "name": "Cuti Bersama Idul Fitri 1447 Hijriah",
+    "is_joint": true
+  },
+  {
+    "date": "2026-03-21",
+    "day": "Sabtu",
+    "name": "Idul Fitri 1447 Hijriah",
+    "is_joint": false
+  },
+  {
+    "date": "2026-03-22",
+    "day": "Minggu",
+    "name": "Idul Fitri 1447 Hijriah",
+    "is_joint": false
+  },
+  {
+    "date": "2026-03-23",
+    "day": "Senin",
+    "name": "Cuti Bersama Idul Fitri 1447 Hijriah",
+    "is_joint": true
+  },
+  {
+    "date": "2026-03-24",
+    "day": "Selasa",
+    "name": "Cuti Bersama Idul Fitri 1447 Hijriah",
+    "is_joint": true
+  },
+  {
+    "date": "2026-04-03",
+    "day": "Jumat",
+    "name": "Wafat Yesus Kristus",
+    "is_joint": false
+  },
+  {
+    "date": "2026-04-05",
+    "day": "Minggu",
+    "name": "Kebangkitan Yesus Kristus (Paskah)",
+    "is_joint": false
+  },
+  {
+    "date": "2026-05-01",
+    "day": "Jumat",
+    "name": "Hari Buruh Internasional",
+    "is_joint": false
+  },
+  {
+    "date": "2026-05-14",
+    "day": "Kamis",
+    "name": "Kenaikan Yesus Kristus",
+    "is_joint": false
+  },
+  {
+    "date": "2026-05-15",
+    "day": "Jumat",
+    "name": "Cuti Bersama Kenaikan Yesus Kristus",
+    "is_joint": true
+  },
+  {
+    "date": "2026-05-27",
+    "day": "Rabu",
+    "name": "Idul Adha 1447 Hijriah",
+    "is_joint": false
+  },
+  {
+    "date": "2026-05-28",
+    "day": "Kamis",
+    "name": "Cuti Bersama Idul Adha 1447 Hijriah",
+    "is_joint": true
+  },
+  {
+    "date": "2026-05-31",
+    "day": "Minggu",
+    "name": "Hari Raya Waisak 2570 BE",
+    "is_joint": false
+  },
+  {
+    "date": "2026-06-01",
+    "day": "Senin",
+    "name": "Hari Lahir Pancasila",
+    "is_joint": false
+  },
+  {
+    "date": "2026-06-16",
+    "day": "Selasa",
+    "name": "1 Muharam Tahun Baru Islam 1448 Hijriah",
+    "is_joint": false
+  },
+  {
+    "date": "2026-08-17",
+    "day": "Senin",
+    "name": "Proklamasi Kemerdekaan",
+    "is_joint": false
+  },
+  {
+    "date": "2026-08-25",
+    "day": "Selasa",
+    "name": "Maulid Nabi Muhammad S.A.W.",
+    "is_joint": false
+  },
+  {
+    "date": "2026-12-24",
+    "day": "Kamis",
+    "name": "Kelahiran Yesus Kristus",
+    "is_joint": false
+  },
+  {
+    "date": "2026-12-25",
+    "day": "Jumat",
+    "name": "Kelahiran Yesus Kristus",
+    "is_joint": false
   }
 ]
