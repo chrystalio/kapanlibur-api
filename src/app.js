@@ -1,5 +1,6 @@
 const express = require('express');
 const helmet = require('helmet');
+const cors = require('cors');
 const swaggerSpec = require('./config/swagger');
 const holidayRoutes = require('./routes/holidays');
 const requestLogger = require('./middleware/requestLogger');
@@ -12,18 +13,18 @@ app.use(helmet({
     contentSecurityPolicy: false,
     crossOriginEmbedderPolicy: false
 }));
+
+app.use(cors());
 app.use(rateLimiter);
 app.use(requestLogger);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Serve Swagger spec as JSON
 app.get('/docs/swagger.json', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     res.send(swaggerSpec);
 });
 
-// Serve Swagger UI HTML with CDN assets
 app.get('/docs', (req, res) => {
     res.send(`
 <!DOCTYPE html>
