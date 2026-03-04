@@ -1,500 +1,666 @@
 [
   {
     "date": "2023-09-28",
-    "day": "Kamis",
-    "name": "Maulid Nabi Muhammad SAW",
+    "name": {
+      "id": "Maulid Nabi Muhammad S.A.W.",
+      "en": "Maulid Nabi Muhammad S.A.W."
+    },
     "is_joint": false
   },
   {
     "date": "2023-12-25",
-    "day": "Senin",
-    "name": "Hari Raya Natal",
+    "name": {
+      "id": "Hari Raya Natal",
+      "en": "Christmas Day"
+    },
     "is_joint": false
   },
   {
     "date": "2023-12-26",
-    "day": "Selasa",
-    "name": "Cuti Bersama Natal",
+    "name": {
+      "id": "Cuti Bersama Natal",
+      "en": "Christmas Joint Holiday 2023"
+    },
     "is_joint": true
   },
   {
     "date": "2024-01-01",
-    "day": "Senin",
-    "name": "Tahun Baru 2024 Masehi",
+    "name": {
+      "id": "Tahun Baru 2024 Masehi",
+      "en": "New Year's Day 2024"
+    },
     "is_joint": false
   },
   {
     "date": "2024-02-08",
-    "day": "Kamis",
-    "name": "Isra Mi'raj Nabi Muhammad SAW 1445 H",
+    "name": {
+      "id": "Isra Mi'raj Nabi Muhammad S.A.W. 1445 H",
+      "en": "Ascension of Prophet Muhammad S.A.W. 1445 H"
+    },
     "is_joint": false
   },
   {
     "date": "2024-02-09",
-    "day": "Jumat",
-    "name": "Cuti Bersama Tahun Baru Imlek 2575 Kongzili",
+    "name": {
+      "id": "Cuti Bersama Tahun Baru Imlek 2575 Kongzili",
+      "en": "Chinese New Year 2575 Kongzili Joint Holiday"
+    },
     "is_joint": true
   },
   {
     "date": "2024-02-10",
-    "day": "Sabtu",
-    "name": "Tahun Baru Imlek 2575 Kongzili",
+    "name": {
+      "id": "Tahun Baru Imlek 2575 Kongzili",
+      "en": "Chinese New Year 2575 Kongzili"
+    },
     "is_joint": false
   },
   {
     "date": "2024-02-14",
-    "day": "Rabu",
-    "name": "Hari Pemilihan Umum",
+    "name": {
+      "id": "Hari Pemilihan Umum",
+      "en": "Election Day"
+    },
     "is_joint": false
   },
   {
     "date": "2024-03-11",
-    "day": "Senin",
-    "name": "Hari Suci Nyepi Tahun Baru Saka 1946",
+    "name": {
+      "id": "Hari Suci Nyepi Tahun Baru Saka 1946",
+      "en": "Nyepi Day (Day of Silence) Saka New Year 1946"
+    },
     "is_joint": false
   },
   {
     "date": "2024-03-12",
-    "day": "Selasa",
-    "name": "Cuti Bersama Hari Suci Nyepi Tahun Baru Saka 1946",
+    "name": {
+      "id": "Cuti Bersama Hari Suci Nyepi Tahun Baru Saka 1946",
+      "en": "Nyepi Day Saka 1946 Joint Holiday"
+    },
     "is_joint": true
   },
   {
     "date": "2024-03-29",
-    "day": "Jumat",
-    "name": "Wafatnya Isa Almasih",
+    "name": {
+      "id": "Wafatnya Isa Almasih",
+      "en": "Good Friday"
+    },
     "is_joint": false
   },
   {
     "date": "2024-03-31",
-    "day": "Minggu",
-    "name": "Hari Paskah",
+    "name": {
+      "id": "Hari Paskah",
+      "en": "Easter Sunday"
+    },
     "is_joint": false
   },
   {
     "date": "2024-04-08",
-    "day": "Senin",
-    "name": "Cuti Bersama Hari Raya Idul Fitri 1445 H",
+    "name": {
+      "id": "Cuti Bersama Hari Raya Idul Fitri 1445 H",
+      "en": "Eid al-Fitr 1445 H Joint Holiday"
+    },
     "is_joint": true
   },
   {
     "date": "2024-04-09",
-    "day": "Selasa",
-    "name": "Cuti Bersama Hari Raya Idul Fitri 1445 H",
+    "name": {
+      "id": "Cuti Bersama Hari Raya Idul Fitri 1445 H",
+      "en": "Eid al-Fitr 1445 H Joint Holiday"
+    },
     "is_joint": true
   },
   {
     "date": "2024-04-10",
-    "day": "Rabu",
-    "name": "Hari Raya Idul Fitri 1445 H",
+    "name": {
+      "id": "Hari Raya Idul Fitri 1445 H",
+      "en": "Eid al-Fitr 1445 H"
+    },
     "is_joint": false
   },
   {
     "date": "2024-04-11",
-    "day": "Kamis",
-    "name": "Hari Raya Idul Fitri 1445 H",
+    "name": {
+      "id": "Hari Raya Idul Fitri 1445 H",
+      "en": "Eid al-Fitr 1445 H"
+    },
     "is_joint": false
   },
   {
     "date": "2024-04-12",
-    "day": "Jumat",
-    "name": "Cuti Bersama Hari Raya Idul Fitri 1445 H",
+    "name": {
+      "id": "Cuti Bersama Hari Raya Idul Fitri 1445 H",
+      "en": "Eid al-Fitr 1445 H Joint Holiday"
+    },
     "is_joint": true
   },
   {
     "date": "2024-04-15",
-    "day": "Senin",
-    "name": "Cuti Bersama Hari Raya Idul Fitri 1445 H",
+    "name": {
+      "id": "Cuti Bersama Hari Raya Idul Fitri 1445 H",
+      "en": "Eid al-Fitr 1445 H Joint Holiday"
+    },
     "is_joint": true
   },
   {
     "date": "2024-05-01",
-    "day": "Rabu",
-    "name": "Hari Buruh Internasional",
+    "name": {
+      "id": "Hari Buruh Internasional",
+      "en": "International Labour Day"
+    },
     "is_joint": false
   },
   {
     "date": "2024-05-09",
-    "day": "Kamis",
-    "name": "Kenaikan Isa Almasih",
+    "name": {
+      "id": "Kenaikan Isa Almasih",
+      "en": "Ascension Day of Jesus Christ"
+    },
     "is_joint": false
   },
   {
     "date": "2024-05-10",
-    "day": "Jumat",
-    "name": "Cuti Bersama Kenaikan Isa Almasih",
+    "name": {
+      "id": "Cuti Bersama Kenaikan Isa Almasih",
+      "en": "Ascension Day Joint Holiday 2024"
+    },
     "is_joint": true
   },
   {
     "date": "2024-05-23",
-    "day": "Kamis",
-    "name": "Hari Raya Waisak 2568 BE",
+    "name": {
+      "id": "Hari Raya Waisak 2568 BE",
+      "en": "Vesak Day 2568 BE"
+    },
     "is_joint": false
   },
   {
     "date": "2024-05-24",
-    "day": "Jumat",
-    "name": "Cuti Bersama Hari Raya Waisak",
+    "name": {
+      "id": "Cuti Bersama Hari Raya Waisak",
+      "en": "Vesak Day 2568 BE Joint Holiday"
+    },
     "is_joint": true
   },
   {
     "date": "2024-06-01",
-    "day": "Sabtu",
-    "name": "Hari Lahir Pancasila",
+    "name": {
+      "id": "Hari Lahir Pancasila",
+      "en": "Pancasila Day"
+    },
     "is_joint": false
   },
   {
     "date": "2024-06-17",
-    "day": "Senin",
-    "name": "Hari Raya Idul Adha 1445 H",
+    "name": {
+      "id": "Hari Raya Idul Adha 1445 H",
+      "en": "Eid al-Adha 1445 H"
+    },
     "is_joint": false
   },
   {
     "date": "2024-06-18",
-    "day": "Selasa",
-    "name": "Cuti Bersama Idul Adha 1445 H",
+    "name": {
+      "id": "Cuti Bersama Idul Adha 1445 H",
+      "en": "Eid al-Adha 1445 H Joint Holiday"
+    },
     "is_joint": true
   },
   {
     "date": "2024-07-07",
-    "day": "Minggu",
-    "name": "Tahun Baru Islam 1446 H",
+    "name": {
+      "id": "Tahun Baru Islam 1446 H",
+      "en": "Islamic New Year 1446 H"
+    },
     "is_joint": false
   },
   {
     "date": "2024-08-17",
-    "day": "Sabtu",
-    "name": "Hari Kemerdekaan Republik Indonesia",
+    "name": {
+      "id": "Hari Kemerdekaan Republik Indonesia",
+      "en": "Independence Day"
+    },
     "is_joint": false
   },
   {
     "date": "2024-09-16",
-    "day": "Senin",
-    "name": "Maulid Nabi Muhammad SAW",
+    "name": {
+      "id": "Maulid Nabi Muhammad S.A.W.",
+      "en": "Maulid Nabi Muhammad S.A.W."
+    },
     "is_joint": false
   },
   {
     "date": "2024-12-25",
-    "day": "Rabu",
-    "name": "Hari Raya Natal",
+    "name": {
+      "id": "Hari Raya Natal",
+      "en": "Christmas Day"
+    },
     "is_joint": false
   },
   {
     "date": "2024-12-26",
-    "day": "Kamis",
-    "name": "Cuti Bersama Hari Raya Natal",
+    "name": {
+      "id": "Cuti Bersama Hari Raya Natal",
+      "en": "Christmas Joint Holiday 2024"
+    },
     "is_joint": true
   },
   {
     "date": "2025-01-01",
-    "day": "Rabu",
-    "name": "Tahun Baru 2025 Masehi",
+    "name": {
+      "id": "Tahun Baru 2025 Masehi",
+      "en": "New Year's Day 2025"
+    },
     "is_joint": false
   },
   {
     "date": "2025-01-27",
-    "day": "Senin",
-    "name": "Isra Mikraj Nabi Muhammad S.A.W.",
+    "name": {
+      "id": "Isra Mikraj Nabi Muhammad S.A.W.",
+      "en": "Ascension of Prophet Muhammad S.A.W."
+    },
     "is_joint": false
   },
   {
     "date": "2025-01-28",
-    "day": "Selasa",
-    "name": "Tahun Baru Imlek 2576 Kongzili",
+    "name": {
+      "id": "Tahun Baru Imlek 2576 Kongzili",
+      "en": "Chinese New Year 2576 Kongzili"
+    },
     "is_joint": false
   },
   {
     "date": "2025-01-29",
-    "day": "Rabu",
-    "name": "Tahun Baru Imlek 2576 Kongzili",
-    "is_joint": false
+    "name": {
+      "id": "Tahun Baru Imlek 2576 Kongzili",
+      "en": "Chinese New Year 2576 Kongzili Joint Holiday"
+    },
+    "is_joint": true
   },
   {
     "date": "2025-03-28",
-    "day": "Jumat",
-    "name": "Hari Suci Nyepi (Tahun Baru Saka 1947)",
+    "name": {
+      "id": "Hari Suci Nyepi (Tahun Baru Saka 1947)",
+      "en": "Nyepi Day (Day of Silence) Saka New Year 1947"
+    },
     "is_joint": false
   },
   {
     "date": "2025-03-29",
-    "day": "Sabtu",
-    "name": "Hari Suci Nyepi (Tahun Baru Saka 1947)",
-    "is_joint": false
+    "name": {
+      "id": "Hari Suci Nyepi (Tahun Baru Saka 1947)",
+      "en": "Nyepi Day Saka 1947 Joint Holiday"
+    },
+    "is_joint": true
   },
   {
     "date": "2025-03-31",
-    "day": "Senin",
-    "name": "Idul Fitri 1446 Hijriah",
+    "name": {
+      "id": "Idul Fitri 1446 Hijriah",
+      "en": "Eid al-Fitr 1446 H"
+    },
     "is_joint": false
   },
   {
     "date": "2025-04-01",
-    "day": "Selasa",
-    "name": "Idul Fitri 1446 Hijriah",
+    "name": {
+      "id": "Idul Fitri 1446 Hijriah",
+      "en": "Eid al-Fitr 1446 H"
+    },
     "is_joint": false
   },
   {
     "date": "2025-04-02",
-    "day": "Rabu",
-    "name": "Idul Fitri 1446 Hijriah",
-    "is_joint": false
+    "name": {
+      "id": "Idul Fitri 1446 Hijriah",
+      "en": "Eid al-Fitr 1446 H Joint Holiday"
+    },
+    "is_joint": true
   },
   {
     "date": "2025-04-03",
-    "day": "Kamis",
-    "name": "Idul Fitri 1446 Hijriah",
-    "is_joint": false
+    "name": {
+      "id": "Idul Fitri 1446 Hijriah",
+      "en": "Eid al-Fitr 1446 H Joint Holiday"
+    },
+    "is_joint": true
   },
   {
     "date": "2025-04-04",
-    "day": "Jumat",
-    "name": "Idul Fitri 1446 Hijriah",
-    "is_joint": false
+    "name": {
+      "id": "Idul Fitri 1446 Hijriah",
+      "en": "Eid al-Fitr 1446 H Joint Holiday"
+    },
+    "is_joint": true
   },
   {
     "date": "2025-04-07",
-    "day": "Senin",
-    "name": "Idul Fitri 1446 Hijriah",
-    "is_joint": false
+    "name": {
+      "id": "Idul Fitri 1446 Hijriah",
+      "en": "Eid al-Fitr 1446 H Joint Holiday"
+    },
+    "is_joint": true
   },
   {
     "date": "2025-04-18",
-    "day": "Jumat",
-    "name": "Wafat Yesus Kristus",
+    "name": {
+      "id": "Wafat Yesus Kristus",
+      "en": "Good Friday"
+    },
     "is_joint": false
   },
   {
     "date": "2025-04-20",
-    "day": "Minggu",
-    "name": "Kebangkitan Yesus Kristus (Paskah)",
+    "name": {
+      "id": "Kebangkitan Yesus Kristus (Paskah)",
+      "en": "Easter Sunday"
+    },
     "is_joint": false
   },
   {
     "date": "2025-05-01",
-    "day": "Kamis",
-    "name": "Hari Buruh Internasional",
+    "name": {
+      "id": "Hari Buruh Internasional",
+      "en": "International Labour Day"
+    },
     "is_joint": false
   },
   {
     "date": "2025-05-12",
-    "day": "Senin",
-    "name": "Hari Raya Waisak 2569 BE",
+    "name": {
+      "id": "Hari Raya Waisak 2569 BE",
+      "en": "Vesak Day 2569 BE"
+    },
     "is_joint": false
   },
   {
     "date": "2025-05-13",
-    "day": "Selasa",
-    "name": "Hari Raya Waisak 2569 BE",
-    "is_joint": false
+    "name": {
+      "id": "Hari Raya Waisak 2569 BE",
+      "en": "Vesak Day 2569 BE Joint Holiday"
+    },
+    "is_joint": true
   },
   {
     "date": "2025-05-29",
-    "day": "Kamis",
-    "name": "Kenaikan Yesus Kristus",
+    "name": {
+      "id": "Kenaikan Yesus Kristus",
+      "en": "Ascension Day"
+    },
     "is_joint": false
   },
   {
     "date": "2025-05-30",
-    "day": "Jumat",
-    "name": "Kenaikan Yesus Kristus",
-    "is_joint": false
+    "name": {
+      "id": "Kenaikan Yesus Kristus",
+      "en": "Ascension Day Joint Holiday 2025"
+    },
+    "is_joint": true
   },
   {
     "date": "2025-06-01",
-    "day": "Minggu",
-    "name": "Hari Lahir Pancasila",
+    "name": {
+      "id": "Hari Lahir Pancasila",
+      "en": "Pancasila Day"
+    },
     "is_joint": false
   },
   {
     "date": "2025-06-06",
-    "day": "Jumat",
-    "name": "Idul Adha 1446 Hijriah",
+    "name": {
+      "id": "Idul Adha 1446 Hijriah",
+      "en": "Eid al-Adha 1446 H"
+    },
     "is_joint": false
   },
   {
     "date": "2025-06-09",
-    "day": "Senin",
-    "name": "Idul Adha 1446 Hijriah",
-    "is_joint": false
+    "name": {
+      "id": "Idul Adha 1446 Hijriah",
+      "en": "Eid al-Adha 1446 H Joint Holiday"
+    },
+    "is_joint": true
   },
   {
     "date": "2025-06-27",
-    "day": "Jumat",
-    "name": "1 Muharam Tahun Baru Islam 1447 Hijriah",
+    "name": {
+      "id": "1 Muharam Tahun Baru Islam 1447 Hijriah",
+      "en": "Islamic New Year 1447 H"
+    },
     "is_joint": false
   },
   {
     "date": "2025-08-17",
-    "day": "Minggu",
-    "name": "Proklamasi Kemerdekaan",
+    "name": {
+      "id": "Proklamasi Kemerdekaan",
+      "en": "Independence Day"
+    },
     "is_joint": false
   },
   {
     "date": "2025-09-05",
-    "day": "Jumat",
-    "name": "Maulid Nabi Muhammad S.A.W.",
+    "name": {
+      "id": "Maulid Nabi Muhammad S.A.W.",
+      "en": "Maulid Nabi Muhammad S.A.W."
+    },
     "is_joint": false
   },
   {
     "date": "2025-12-25",
-    "day": "Kamis",
-    "name": "Kelahiran Yesus Kristus",
+    "name": {
+      "id": "Kelahiran Yesus Kristus",
+      "en": "Christmas Day"
+    },
     "is_joint": false
   },
   {
     "date": "2025-12-26",
-    "day": "Jumat",
-    "name": "Kelahiran Yesus Kristus",
-    "is_joint": false
+    "name": {
+      "id": "Kelahiran Yesus Kristus",
+      "en": "Christmas Joint Holiday 2025"
+    },
+    "is_joint": true
   },
   {
     "date": "2026-01-01",
-    "day": "Kamis",
-    "name": "Tahun Baru 2026 Masehi",
+    "name": {
+      "id": "Tahun Baru 2026 Masehi",
+      "en": "New Year's Day 2026"
+    },
     "is_joint": false
   },
   {
     "date": "2026-01-16",
-    "day": "Jumat",
-    "name": "Isra Mikraj Nabi Muhammad S.A.W.",
+    "name": {
+      "id": "Isra Mikraj Nabi Muhammad S.A.W.",
+      "en": "Ascension of Prophet Muhammad S.A.W."
+    },
     "is_joint": false
   },
   {
     "date": "2026-02-16",
-    "day": "Senin",
-    "name": "Cuti Bersama Tahun Baru Imlek 2577 Kongzili",
+    "name": {
+      "id": "Cuti Bersama Tahun Baru Imlek 2577 Kongzili",
+      "en": "Chinese New Year 2577 Kongzili Joint Holiday"
+    },
     "is_joint": true
   },
   {
     "date": "2026-02-17",
-    "day": "Selasa",
-    "name": "Tahun Baru Imlek 2577 Kongzili",
+    "name": {
+      "id": "Tahun Baru Imlek 2577 Kongzili",
+      "en": "Chinese New Year 2577 Kongzili"
+    },
     "is_joint": false
   },
   {
     "date": "2026-03-18",
-    "day": "Rabu",
-    "name": "Cuti Bersama Hari Suci Nyepi (Tahun Baru Saka 1948)",
+    "name": {
+      "id": "Cuti Bersama Hari Suci Nyepi (Tahun Baru Saka 1948)",
+      "en": "Nyepi Day Saka 1948 Joint Holiday"
+    },
     "is_joint": true
   },
   {
     "date": "2026-03-19",
-    "day": "Kamis",
-    "name": "Hari Suci Nyepi (Tahun Baru Saka 1948)",
+    "name": {
+      "id": "Hari Suci Nyepi (Tahun Baru Saka 1948)",
+      "en": "Nyepi Day (Day of Silence) Saka New Year 1948"
+    },
     "is_joint": false
   },
   {
     "date": "2026-03-20",
-    "day": "Jumat",
-    "name": "Cuti Bersama Idul Fitri 1447 Hijriah",
+    "name": {
+      "id": "Cuti Bersama Idul Fitri 1447 Hijriah",
+      "en": "Eid al-Fitr 1447 H Joint Holiday"
+    },
     "is_joint": true
   },
   {
     "date": "2026-03-21",
-    "day": "Sabtu",
-    "name": "Idul Fitri 1447 Hijriah",
+    "name": {
+      "id": "Idul Fitri 1447 Hijriah",
+      "en": "Eid al-Fitr 1447 H"
+    },
     "is_joint": false
   },
   {
     "date": "2026-03-22",
-    "day": "Minggu",
-    "name": "Idul Fitri 1447 Hijriah",
+    "name": {
+      "id": "Idul Fitri 1447 Hijriah",
+      "en": "Eid al-Fitr 1447 H"
+    },
     "is_joint": false
   },
   {
     "date": "2026-03-23",
-    "day": "Senin",
-    "name": "Cuti Bersama Idul Fitri 1447 Hijriah",
+    "name": {
+      "id": "Cuti Bersama Idul Fitri 1447 Hijriah",
+      "en": "Eid al-Fitr 1447 H Joint Holiday"
+    },
     "is_joint": true
   },
   {
     "date": "2026-03-24",
-    "day": "Selasa",
-    "name": "Cuti Bersama Idul Fitri 1447 Hijriah",
+    "name": {
+      "id": "Cuti Bersama Idul Fitri 1447 Hijriah",
+      "en": "Eid al-Fitr 1447 H Joint Holiday"
+    },
     "is_joint": true
   },
   {
     "date": "2026-04-03",
-    "day": "Jumat",
-    "name": "Wafat Yesus Kristus",
+    "name": {
+      "id": "Wafat Yesus Kristus",
+      "en": "Good Friday"
+    },
     "is_joint": false
   },
   {
     "date": "2026-04-05",
-    "day": "Minggu",
-    "name": "Kebangkitan Yesus Kristus (Paskah)",
+    "name": {
+      "id": "Kebangkitan Yesus Kristus (Paskah)",
+      "en": "Easter Sunday"
+    },
     "is_joint": false
   },
   {
     "date": "2026-05-01",
-    "day": "Jumat",
-    "name": "Hari Buruh Internasional",
+    "name": {
+      "id": "Hari Buruh Internasional",
+      "en": "International Labour Day"
+    },
     "is_joint": false
   },
   {
     "date": "2026-05-14",
-    "day": "Kamis",
-    "name": "Kenaikan Yesus Kristus",
+    "name": {
+      "id": "Kenaikan Yesus Kristus",
+      "en": "Ascension Day"
+    },
     "is_joint": false
   },
   {
     "date": "2026-05-15",
-    "day": "Jumat",
-    "name": "Cuti Bersama Kenaikan Yesus Kristus",
+    "name": {
+      "id": "Cuti Bersama Kenaikan Yesus Kristus",
+      "en": "Ascension Day Joint Holiday 2026"
+    },
     "is_joint": true
   },
   {
     "date": "2026-05-27",
-    "day": "Rabu",
-    "name": "Idul Adha 1447 Hijriah",
+    "name": {
+      "id": "Idul Adha 1447 Hijriah",
+      "en": "Eid al-Adha 1447 H"
+    },
     "is_joint": false
   },
   {
     "date": "2026-05-28",
-    "day": "Kamis",
-    "name": "Cuti Bersama Idul Adha 1447 Hijriah",
+    "name": {
+      "id": "Cuti Bersama Idul Adha 1447 Hijriah",
+      "en": "Eid al-Adha 1447 H Joint Holiday"
+    },
     "is_joint": true
   },
   {
     "date": "2026-05-31",
-    "day": "Minggu",
-    "name": "Hari Raya Waisak 2570 BE",
+    "name": {
+      "id": "Hari Raya Waisak 2570 BE",
+      "en": "Vesak Day 2570 BE"
+    },
     "is_joint": false
   },
   {
     "date": "2026-06-01",
-    "day": "Senin",
-    "name": "Hari Lahir Pancasila",
+    "name": {
+      "id": "Hari Lahir Pancasila",
+      "en": "Pancasila Day"
+    },
     "is_joint": false
   },
   {
     "date": "2026-06-16",
-    "day": "Selasa",
-    "name": "1 Muharam Tahun Baru Islam 1448 Hijriah",
+    "name": {
+      "id": "1 Muharam Tahun Baru Islam 1448 Hijriah",
+      "en": "Islamic New Year 1448 H"
+    },
     "is_joint": false
   },
   {
     "date": "2026-08-17",
-    "day": "Senin",
-    "name": "Proklamasi Kemerdekaan",
+    "name": {
+      "id": "Proklamasi Kemerdekaan",
+      "en": "Independence Day"
+    },
     "is_joint": false
   },
   {
     "date": "2026-08-25",
-    "day": "Selasa",
-    "name": "Maulid Nabi Muhammad S.A.W.",
+    "name": {
+      "id": "Maulid Nabi Muhammad S.A.W.",
+      "en": "Maulid Nabi Muhammad S.A.W."
+    },
     "is_joint": false
   },
   {
     "date": "2026-12-24",
-    "day": "Kamis",
-    "name": "Kelahiran Yesus Kristus",
-    "is_joint": false
+    "name": {
+      "id": "Kelahiran Yesus Kristus",
+      "en": "Christmas Joint Holiday 2026"
+    },
+    "is_joint": true
   },
   {
     "date": "2026-12-25",
-    "day": "Jumat",
-    "name": "Kelahiran Yesus Kristus",
+    "name": {
+      "id": "Kelahiran Yesus Kristus",
+      "en": "Christmas Day"
+    },
     "is_joint": false
   }
 ]
