@@ -13,6 +13,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Released]
 
+## v1.2.0 (2026-03-15)
+
+### Added
+
+- Docker support with production-optimized multi-stage Dockerfile
+- Docker Compose configuration for local development and testing
+- `.dockerignore` to exclude unnecessary files from Docker build context
+- Docker npm scripts: `docker:build`, `docker:run`, `docker:logs`
+- Health check integration with Docker health check command
+- Non-root user (`nodejs`) in Docker container for security
+
+### Changed
+
+- Moved `helmet` and `express-rate-limit` from `devDependencies` to `dependencies` for production Docker builds
+
+### Removed
+
+- Vercel deployment configuration (`vercel.json`)
+- Vercel-specific deployment references
+
 ## v1.1.0 (2026-03-15)
 
 ### Added
