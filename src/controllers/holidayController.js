@@ -96,6 +96,7 @@ const getAllHolidayController = (req, res) => {
  *                       type: boolean
  *                       example: true
  *                     data:
+ *                       nullable: true
  *                       allOf:
  *                         - $ref: '#/components/schemas/Holiday'
  *                         - type: object

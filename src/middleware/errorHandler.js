@@ -33,7 +33,11 @@ function notFoundHandler(req, res) {
         error: {
             code: 'NOT_FOUND',
             message
-        }
+        },
+        ...(process.env.NODE_ENV === 'development' && {
+            method: req.method,
+            path: req.originalUrl || req.url
+        })
     });
 }
 

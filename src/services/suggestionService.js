@@ -51,7 +51,7 @@ const generateSuggestions = (year = new Date().getFullYear(), maxLeaveDays = 5, 
                 days: bridge.leaveDaysRequired,
                 holiday1: fromHoliday.name[language] || fromHoliday.name['id'],
                 holiday2: toHoliday.name[language] || toHoliday.name['id'],
-                total: bridge.gapDays + 1 + bridge.leaveDaysRequired
+                total: bridge.gapDays + 1
             })
         });
     }
@@ -62,7 +62,7 @@ const generateSuggestions = (year = new Date().getFullYear(), maxLeaveDays = 5, 
         return efficiencyB - efficiencyA;
     });
 
-    return suggestions.filter(s => s.leave_days_required > 0);
+    return suggestions.filter(s => s.leave_days_required > 0 && s.leave_days_required <= maxLeaveDays);
 }
 
 const isHolidayNearWeekend = (holiday, lang = 'id') => {

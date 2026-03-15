@@ -11,7 +11,7 @@ const isWeekend = (date) => {
 }
 
 const getDayName = (dateInput, lang = 'id') => {
-    const date = typeof dateInput === 'string' ? new Date(dateInput) : dateInput;
+    const date = typeof dateInput === 'string' ? parseDate(dateInput) : dateInput;
     return date.toLocaleDateString(lang, { weekday: 'long' });
 }
 

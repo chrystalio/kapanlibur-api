@@ -16,13 +16,13 @@ app.use(helmet({
 }));
 
 app.use(cors());
-app.use(rateLimiter);
 app.use(requestLogger);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Language detection (must be before routes)
+// Language detection (must be before rateLimiter for translated error messages)
 app.use(languageHandler);
+app.use(rateLimiter);
 
 app.get('/docs/swagger.json', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
