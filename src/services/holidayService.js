@@ -1,7 +1,9 @@
 const { loadHolidays } = require("../utils/dataParser")
-const { formatDate, parseDate, daysBetween } = require("../utils/dateHelpers")
+const { formatDate, parseDate, daysBetween, getDayName } = require("../utils/dateHelpers")
+const { tMessage } = require("../utils/translator");
 
-const getAllHolidays = (filters = {}) => {
+const getAllHolidays = (filters = {}, lang = 'id') => {
+    const language = lang || 'id';
     let holidays = loadHolidays();
 
      if (filters.year) {
@@ -20,13 +22,19 @@ const getAllHolidays = (filters = {}) => {
         holidays = holidays.filter(h => h.is_joint === filters.is_joint);
     }
 
-    return holidays;
+    return holidays.map(holiday => ({
+        date: holiday.date,
+        day: getDayName(holiday.date, language),
+        name: holiday.name[language] || holiday.name['id'],
+        is_joint: holiday.is_joint
+    }));
 }
 
-const getNextHoliday = (referenceDate = new Date()) => {
+const getNextHoliday = (referenceDate = new Date(), lang = 'id') => {
     const holidays = loadHolidays();
     const referenceDateFormatted = formatDate(referenceDate);
     const upcomingHoliday = holidays.find(holiday => holiday.date >= referenceDateFormatted);
+    const language = lang || 'id';
 
     if (!upcomingHoliday) {
         return null;
@@ -37,14 +45,18 @@ const getNextHoliday = (referenceDate = new Date()) => {
     const isToday = upcomingHoliday.date === referenceDateFormatted;
 
     return {
-        ...upcomingHoliday,
+        date: upcomingHoliday.date,
+        day: getDayName(upcomingHoliday.date, language),
+        name: upcomingHoliday.name[language] || upcomingHoliday.name['id'],
+        is_joint: upcomingHoliday.is_joint,
         days_until: daysUntil,
         is_today: isToday
     };
 }
 
-const getCurrentHoliday = (dateInput = new Date()) => {
+const getCurrentHoliday = (dateInput = new Date(), lang = 'id') => {
     let dateStr;
+    const language = lang || 'id';
 
     if (typeof dateInput === 'string') {
         dateStr = dateInput;
@@ -60,7 +72,10 @@ const getCurrentHoliday = (dateInput = new Date()) => {
     }
 
     return {
-        ...holiday,
+        date: holiday.date,
+        day: getDayName(holiday.date, language),
+        name: holiday.name[language] || holiday.name['id'],
+        is_joint: holiday.is_joint,
         is_today: true
     };
 }
