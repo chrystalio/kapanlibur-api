@@ -1,5 +1,4 @@
 const rateLimit = require('express-rate-limit');
-const config = require('../config');
 const { tError } = require('../utils/translator');
 
 const rateLimiter = rateLimit({

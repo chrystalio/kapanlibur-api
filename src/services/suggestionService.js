@@ -115,7 +115,7 @@ const isHolidayNearWeekend = (holiday, lang = 'id') => {
     }
 }
 
-const findHolidayBridges = (holidays, lang = 'id') => {
+const findHolidayBridges = (holidays) => {
     const bridges = [];
 
     for (let i = 0; i < holidays.length - 1; i++) {

@@ -149,7 +149,7 @@ const getNextHolidayController = (req, res) => {
             data: nextHoliday
         });
 
-    } catch (error) {
+    } catch {
         res.status(500).json({
             success: false,
             error: {
@@ -216,7 +216,7 @@ const getCurrentHolidayController = (req, res) => {
             data: currentHoliday,
             message: currentHoliday ? tMessage('HOLIDAY_FOUND', lang) : tMessage('NO_HOLIDAY_FOR_DATE', lang)
         });
-    } catch (error) {
+    } catch {
         res.status(500).json({
             success: false,
             error: {
@@ -334,7 +334,7 @@ const getSuggestionsController = (req, res) => {
                 suggestions
             }
         });
-    } catch (error) {
+    } catch {
         res.status(500).json({
             success: false,
             error: {
