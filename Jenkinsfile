@@ -1,9 +1,9 @@
 pipeline {
     agent any
     environment {
-        DOCKER_USER = "yourusername"
+        DOCKER_USER = "chrystalio"
         IMAGE_NAME = "kapanlibur-api"
-        PORTAINER_WEBHOOK = "PASTE_YOUR_PORTAINER_WEBHOOK_HERE"
+        PORTAINER_WEBHOOK = "todo"
     }
     stages {
         stage('Build') {
@@ -12,11 +12,11 @@ pipeline {
                 sh "docker tag ${DOCKER_USER}/${IMAGE_NAME}:${BUILD_NUMBER} ${DOCKER_USER}/${IMAGE_NAME}:latest"
             }
         }
-        stage('Deploy') {
-            steps {
-                sh "curl -X POST ${PORTAINER_WEBHOOK}"
-            }
-        }
+        // stage('Deploy') {
+        //     steps {
+        //         sh "curl -X POST ${PORTAINER_WEBHOOK}"
+        //     }
+        // }
     }
     post {
         always {
