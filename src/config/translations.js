@@ -68,7 +68,7 @@ const translations = {
       },
       bridge_between_holidays: {
         en: "Take {days} day(s) off to bridge between {holiday1} and {holiday2} for a {total}-day break",
-        id: "Ambil cuti {days} hari untuk menjembatani {holiday1} dan {holiday2} untuk liburan {total} hari"
+        id: "Ambil cuti {days} hari untuk hari terjepit {holiday1} dan {holiday2} untuk liburan {total} hari"
       }
     }
 };
