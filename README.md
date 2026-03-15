@@ -100,7 +100,7 @@ curl -H "Accept-Language: en" "http://localhost:3000/v1/holidays"
 
 Interactive API documentation is available via **Swagger UI**:
 
-- **Production**: https://kapanliburapi.kristoff.my.id/docs
+- **Production**: https://kapanliburapi.krisdev.my.id/docs
 - **Development**: http://localhost:3000/docs
 
 The documentation includes all endpoints, request/response schemas, language parameter, and examples you can try directly from the browser.
