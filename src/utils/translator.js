@@ -25,21 +25,21 @@ const translate = (category, key, lang = 'id', params = {}) => {
     return text;
 }
 
-function interpolate(template, params) {
+const interpolate = (template, params) => {
   return template.replace(/\{(\w+)\}/g, (match, key) => {
     return params[key] !== undefined ? params[key] : match;
   });
 }
 
-function tError(key, lang = 'id') {
+const tError = (key, lang = 'id') => {
   return translate('errors', key, lang);
 }
 
-function tMessage(key, lang = 'id') {
+const tMessage = (key, lang = 'id') => {
   return translate('messages', key, lang);
 }
 
-function tSuggestion(key, lang = 'id', params = {}) {
+const tSuggestion = (key, lang = 'id', params = {}) => {
   return translate('suggestions', key, lang, params);
 }
 
