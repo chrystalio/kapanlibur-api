@@ -1,17 +1,24 @@
 const { loadHolidays } = require('../utils/dataParser');
-const { formatDate, parseDate, daysBetween } = require('../utils/dateHelpers');
+const { tSuggestion } = require('../utils/translator');
+const { formatDate, parseDate, daysBetween, getDayName, isWeekend } = require('../utils/dateHelpers');
 
-const generateSuggestions = (year = new Date().getFullYear(), maxLeaveDays = 5) => {
+const generateSuggestions = (year = new Date().getFullYear(), maxLeaveDays = 5, lang = 'id') => {
+    const language = lang || 'id';
     const allHolidays = loadHolidays();
     const yearHolidays = allHolidays.filter(h => h.date.startsWith(year.toString()));
     const suggestions = [];
 
     for (const holiday of yearHolidays) {
-        const weekendInfo = isHolidayNearWeekend(holiday);
+        const weekendInfo = isHolidayNearWeekend(holiday, language);
 
         if (weekendInfo.isNearWeekend) {
             suggestions.push({
-                holiday: holiday,
+                holiday: {
+                    date: holiday.date,
+                    day: getDayName(holiday.date, language),
+                    name: holiday.name[language] || holiday.name['id'],
+                    is_joint: holiday.is_joint
+                },
                 suggested_leave_dates: [weekendInfo.suggestedDay],
                 leave_days_required: weekendInfo.leaveDaysRequired,
                 total_days_off: weekendInfo.totalDaysOff,
@@ -24,18 +31,28 @@ const generateSuggestions = (year = new Date().getFullYear(), maxLeaveDays = 5) 
         }
     }
 
-    const bridges = findHolidayBridges(yearHolidays);
+    const bridges = findHolidayBridges(yearHolidays, language);
     for (const bridge of bridges) {
         const fromHoliday = yearHolidays.find(h => h.date === bridge.from);
         const toHoliday = yearHolidays.find(h => h.date === bridge.to);
 
         suggestions.push({
-            holiday: fromHoliday,
+            holiday: {
+                date: fromHoliday.date,
+                day: getDayName(fromHoliday.date, language),
+                name: fromHoliday.name[language] || fromHoliday.name['id'],
+                is_joint: fromHoliday.is_joint
+            },
             suggested_leave_dates: bridge.bridgeDates,
             leave_days_required: bridge.leaveDaysRequired,
             total_days_off: bridge.gapDays + 1,
             period: { start: bridge.from, end: bridge.to },
-            reason: `Bridge between ${fromHoliday.name} and ${toHoliday.name}`
+            reason: tSuggestion('bridge_between_holidays', language, {
+                days: bridge.leaveDaysRequired,
+                holiday1: fromHoliday.name[language] || fromHoliday.name['id'],
+                holiday2: toHoliday.name[language] || toHoliday.name['id'],
+                total: bridge.gapDays + 1
+            })
         });
     }
 
@@ -45,10 +62,11 @@ const generateSuggestions = (year = new Date().getFullYear(), maxLeaveDays = 5) 
         return efficiencyB - efficiencyA;
     });
 
-    return suggestions.filter(s => s.leave_days_required > 0);
+    return suggestions.filter(s => s.leave_days_required > 0 && s.leave_days_required <= maxLeaveDays);
 }
 
-const isHolidayNearWeekend = (holiday) => {
+const isHolidayNearWeekend = (holiday, lang = 'id') => {
+    const language = lang || 'id';
     const date = parseDate(holiday.date);
     const dayOfWeek = date.getDay();
 
@@ -67,7 +85,7 @@ const isHolidayNearWeekend = (holiday) => {
             periodEnd: formatDate(endDate),
             totalDaysOff: 4,
             leaveDaysRequired: 1,
-            reason: 'Holiday is on Thursday, take Friday off for 4-day weekend'
+            reason: tSuggestion('thursday_before_weekend', language),
         }
     }
 
@@ -86,7 +104,7 @@ const isHolidayNearWeekend = (holiday) => {
             periodEnd: formatDate(endDate),
             totalDaysOff: 4,
             leaveDaysRequired: 1,
-            reason: 'Holiday is on Friday, take Monday off for 4-day weekend'
+            reason: tSuggestion('friday_before_weekend', language),
         }
     }
 
@@ -107,19 +125,27 @@ const findHolidayBridges = (holidays) => {
 
         if (gap >= 1 && gap <= 3) {
             const bridgeDates = [];
+            let actualLeaveDays = 0;
+
             for (let j = 1; j < gap; j++) {
                 const bridgeDate = new Date(current);
                 bridgeDate.setDate(current.getDate() + j);
-                bridgeDates.push(formatDate(bridgeDate));
+                if (!isWeekend(bridgeDate)) {
+                    bridgeDates.push(formatDate(bridgeDate));
+                    actualLeaveDays++;
+                }
             }
 
-            bridges.push({
-                from: holidays[i].date,
-                to: holidays[i + 1].date,
-                gapDays: gap,
-                bridgeDates: bridgeDates,
-                leaveDaysRequired: bridgeDates.length
-            });
+            // Only include if there are actual work days to take off
+            if (actualLeaveDays > 0) {
+                bridges.push({
+                    from: holidays[i].date,
+                    to: holidays[i + 1].date,
+                    gapDays: gap,
+                    bridgeDates: bridgeDates,
+                    leaveDaysRequired: actualLeaveDays
+                });
+            }
         }
     }
 

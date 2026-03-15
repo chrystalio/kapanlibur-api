@@ -3,6 +3,7 @@ const helmet = require('helmet');
 const cors = require('cors');
 const swaggerSpec = require('./config/swagger');
 const holidayRoutes = require('./routes/holidays');
+const languageHandler = require('./middleware/languageHandler');
 const requestLogger = require('./middleware/requestLogger');
 const { rateLimiter } = require('./middleware/rateLimiter');
 const { errorHandler, notFoundHandler } = require('./middleware/errorHandler');
@@ -15,10 +16,13 @@ app.use(helmet({
 }));
 
 app.use(cors());
-app.use(rateLimiter);
 app.use(requestLogger);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Language detection (must be before rateLimiter for translated error messages)
+app.use(languageHandler);
+app.use(rateLimiter);
 
 app.get('/docs/swagger.json', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
@@ -91,17 +95,20 @@ app.get('/health', (req, res) => {
     res.json({
         status: 'ok',
         timestamp: new Date().toISOString(),
-        uptime: formatUptime(process.uptime())
+        uptime: formatUptime(process.uptime()),
+        language: req.language
     });
 });
 
 app.get('/', (req, res) => {
     res.json({
         name: 'KapanLibur API',
-        version: '1.0.0',
+        version: '1.1.0',
         description: 'API untuk informasi hari libur nasional Indonesia',
+        description_en: 'API for Indonesian national holiday information',
         author: 'Chrystalio (Kristoff)',
         documentation: '/docs',
+        language: req.language,
         endpoints: {
             holidays: '/v1/holidays',
             nextHoliday: '/v1/holidays/next',

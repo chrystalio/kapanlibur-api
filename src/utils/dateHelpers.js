@@ -10,9 +10,13 @@ const isWeekend = (date) => {
     return dayOfWeek === 0 || dayOfWeek === 6;
 }
 
+const getDayName = (dateInput, lang = 'id') => {
+    const date = typeof dateInput === 'string' ? parseDate(dateInput) : dateInput;
+    return date.toLocaleDateString(lang, { weekday: 'long' });
+}
+
 const getDayNameIndonesian = (date) => {
-    const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
-    return days[date.getDay()];
+    return getDayName(date, 'id');
 }
 
 const daysBetween = (date1, date2) => {
@@ -25,4 +29,4 @@ const parseDate = (dateString) => {
     return new Date(year, month - 1, day);
 }
 
-module.exports = { formatDate, isWeekend, getDayNameIndonesian, daysBetween, parseDate };
+module.exports = { formatDate, isWeekend, getDayName, getDayNameIndonesian, daysBetween, parseDate };
