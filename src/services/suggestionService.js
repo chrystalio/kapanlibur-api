@@ -1,6 +1,6 @@
 const { loadHolidays } = require('../utils/dataParser');
 const { tSuggestion } = require('../utils/translator');
-const { formatDate, parseDate, daysBetween, getDayName } = require('../utils/dateHelpers');
+const { formatDate, parseDate, daysBetween, getDayName, isWeekend } = require('../utils/dateHelpers');
 
 const generateSuggestions = (year = new Date().getFullYear(), maxLeaveDays = 5, lang = 'id') => {
     const language = lang || 'id';
@@ -125,19 +125,27 @@ const findHolidayBridges = (holidays, lang = 'id') => {
 
         if (gap >= 1 && gap <= 3) {
             const bridgeDates = [];
+            let actualLeaveDays = 0;
+
             for (let j = 1; j < gap; j++) {
                 const bridgeDate = new Date(current);
                 bridgeDate.setDate(current.getDate() + j);
-                bridgeDates.push(formatDate(bridgeDate));
+                if (!isWeekend(bridgeDate)) {
+                    bridgeDates.push(formatDate(bridgeDate));
+                    actualLeaveDays++;
+                }
             }
 
-            bridges.push({
-                from: holidays[i].date,
-                to: holidays[i + 1].date,
-                gapDays: gap,
-                bridgeDates: bridgeDates,
-                leaveDaysRequired: bridgeDates.length
-            });
+            // Only include if there are actual work days to take off
+            if (actualLeaveDays > 0) {
+                bridges.push({
+                    from: holidays[i].date,
+                    to: holidays[i + 1].date,
+                    gapDays: gap,
+                    bridgeDates: bridgeDates,
+                    leaveDaysRequired: actualLeaveDays
+                });
+            }
         }
     }
 
