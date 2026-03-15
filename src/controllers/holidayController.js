@@ -7,9 +7,10 @@ const { tError, tMessage } = require('../utils/translator');
  * /v1/holidays:
  *   get:
  *     summary: Get all holidays
- *     description: Retrieve a list of Indonesian national holidays with optional filters
+ *     description: Retrieve a list of Indonesian national holidays with optional filters. Supports bilingual responses.
  *     tags: [Holidays]
  *     parameters:
+ *       - $ref: '#/components/parameters/Lang'
  *       - in: query
  *         name: year
  *         schema:
@@ -41,20 +42,7 @@ const { tError, tMessage } = require('../utils/translator');
  *                 data:
  *                   type: array
  *                   items:
- *                     type: object
- *                     properties:
- *                       date:
- *                         type: string
- *                         example: "2025-01-01"
- *                       day:
- *                         type: string
- *                         example: "Rabu"
- *                       name:
- *                         type: string
- *                         example: "Tahun Baru"
- *                       is_joint:
- *                         type: boolean
- *                         example: false
+ *                     $ref: '#/components/schemas/Holiday'
  *                 meta:
  *                   type: object
  *                   properties:
@@ -85,9 +73,10 @@ const getAllHolidayController = (req, res) => {
  * /v1/holidays/next:
  *   get:
  *     summary: Get next holiday
- *     description: Find the next upcoming holiday from a reference date
+ *     description: Find the next upcoming holiday from a reference date. Supports bilingual responses.
  *     tags: [Holidays]
  *     parameters:
+ *       - $ref: '#/components/parameters/Lang'
  *       - in: query
  *         name: date
  *         schema:
@@ -100,27 +89,25 @@ const getAllHolidayController = (req, res) => {
  *         content:
  *           application/json:
  *             schema:
- *               type: object
- *               properties:
- *                 success:
- *                   type: boolean
- *                 data:
- *                   type: object
- *                   nullable: true
+ *               allOf:
+ *                 - type: object
  *                   properties:
- *                     date:
- *                       type: string
- *                       example: "2025-01-01"
- *                     day:
- *                       type: string
- *                       example: "Rabu"
- *                     name:
- *                       type: string
- *                       example: "Tahun Baru"
- *                     is_joint:
+ *                     success:
  *                       type: boolean
- *                 message:
- *                   type: string
+ *                       example: true
+ *                     data:
+ *                       allOf:
+ *                         - $ref: '#/components/schemas/Holiday'
+ *                         - type: object
+ *                           properties:
+ *                             days_until:
+ *                               type: integer
+ *                               description: Days until the holiday
+ *                             is_today:
+ *                               type: boolean
+ *                               description: Whether the holiday is today
+ *                     message:
+ *                       type: string
  *       400:
  *         description: Invalid date format
  *         content:
@@ -177,9 +164,10 @@ const getNextHolidayController = (req, res) => {
  * /v1/holidays/current:
  *   get:
  *     summary: Get holiday for specific date
- *     description: Check if a specific date is a holiday
+ *     description: Check if a specific date is a holiday. Supports bilingual responses.
  *     tags: [Holidays]
  *     parameters:
+ *       - $ref: '#/components/parameters/Lang'
  *       - in: query
  *         name: date
  *         schema:
@@ -197,20 +185,8 @@ const getNextHolidayController = (req, res) => {
  *                 success:
  *                   type: boolean
  *                 data:
- *                   type: object
+ *                   $ref: '#/components/schemas/Holiday'
  *                   nullable: true
- *                   properties:
- *                     date:
- *                       type: string
- *                       example: "2025-01-01"
- *                     day:
- *                       type: string
- *                       example: "Rabu"
- *                     name:
- *                       type: string
- *                       example: "Tahun Baru"
- *                     is_joint:
- *                       type: boolean
  *                 message:
  *                   type: string
  *       400:
@@ -255,9 +231,10 @@ const getCurrentHolidayController = (req, res) => {
  * /v1/holidays/suggestions:
  *   get:
  *     summary: Get leave suggestions
- *     description: Get optimized leave suggestions to maximize long weekends using holiday bridging
+ *     description: Get optimized leave suggestions to maximize long weekends using holiday bridging. Supports bilingual responses.
  *     tags: [Holidays]
  *     parameters:
+ *       - $ref: '#/components/parameters/Lang'
  *       - in: query
  *         name: year
  *         schema:
@@ -287,7 +264,7 @@ const getCurrentHolidayController = (req, res) => {
  *                   properties:
  *                     year:
  *                       type: integer
- *                       example: 2025
+ *                       example: 2026
  *                     max_leave_days:
  *                       type: integer
  *                       example: 5
@@ -296,24 +273,27 @@ const getCurrentHolidayController = (req, res) => {
  *                       items:
  *                         type: object
  *                         properties:
- *                           name:
- *                             type: string
- *                             example: "Maulid Nabi Muhammad SAW"
- *                           date:
- *                             type: string
- *                             example: "2025-09-06"
- *                           suggestion:
- *                             type: string
- *                             example: "Ambil cuti Jumat (5 Sep) untuk libur 5 hari"
+ *                           holiday:
+ *                             $ref: '#/components/schemas/Holiday'
+ *                           suggested_leave_dates:
+ *                             type: array
+ *                             items:
+ *                               type: string
+ *                               format: date
  *                           leave_days_required:
  *                             type: integer
- *                             example: 1
  *                           total_days_off:
  *                             type: integer
- *                             example: 5
- *                           efficiency:
- *                             type: number
- *                             example: 5
+ *                           period:
+ *                             type: object
+ *                             properties:
+ *                               start:
+ *                                 type: string
+ *                               end:
+ *                                 type: string
+ *                           reason:
+ *                             type: string
+ *                             description: Translated suggestion reason based on lang parameter
  *       400:
  *         description: Invalid parameters
  *         content:
