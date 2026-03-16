@@ -1,5 +1,7 @@
 const swaggerJsdoc = require('swagger-jsdoc');
 
+const isDevelopment = process.env.NODE_ENV !== 'production';
+
 const options = {
     definition: {
         openapi: '3.0.0',
@@ -33,14 +35,15 @@ const options = {
                 url: 'https://opensource.org/licenses/MIT'
             }
         },
-        servers: [
-            {
-                url: 'https://kapanliburapi.krisdev.my.id',
-                description: 'Production server'
-            },
+        servers: isDevelopment ? [
             {
                 url: 'http://localhost:3000',
                 description: 'Development server'
+            }
+        ] : [
+            {
+                url: 'https://kapanlibur-api.krisdev.my.id',
+                description: 'Production server'
             }
         ],
         components: {
