@@ -2,7 +2,7 @@
 
 RESTful API for Indonesian national holiday data including national holidays, religious observances, and "cuti bersama" (joint holidays).
 
-**Version:** 1.1.0 - Now with bilingual support (Indonesian/English)!
+**Version:** 1.2.0 - Docker deployment support!
 
 ## Features
 
