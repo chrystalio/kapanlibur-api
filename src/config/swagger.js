@@ -35,7 +35,7 @@ const options = {
         },
         servers: [
             {
-                url: 'https://kapanliburapi.kristoff.my.id',
+                url: 'https://kapanliburapi.krisdev.my.id',
                 description: 'Production server'
             },
             {
