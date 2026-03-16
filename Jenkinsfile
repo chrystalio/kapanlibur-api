@@ -1,27 +1,31 @@
 pipeline {
     agent any
+
     environment {
         APP_NAME = "kapanlibur-api"
         IMAGE_NAME = "${env.DOCKER_HUB_USER}/${APP_NAME}"
         TARGET_NODE = "${env.DEPLOY_TARGET_IP}"
         SSH_CREDS = "jenkins-deploy-ssh"
     }
+
     stages {
         stage('Checkout') {
             steps {
                 checkout scm
             }
         }
+
         stage('Build & Push') {
             steps {
                 script {
-                    dockerImage = docker.build("${IMAGE_NAME}:latest")
+                    def dockerImage = docker.build("${IMAGE_NAME}:latest")
                     docker.withRegistry('', 'docker-hub-creds') {
                         dockerImage.push()
                     }
                 }
             }
         }
+
         stage('Deploy (via SSH)') {
             steps {
                 sshagent([SSH_CREDS]) {
@@ -34,13 +38,15 @@ pipeline {
                                 --name ${APP_NAME} \
                                 -p 3000:3000 \
                                 --restart unless-stopped \
-                                ${IMAGE_NAME}:latest
+                                ${IMAGE_NAME}:latest && \
+                            docker image prune -f
                         "
                     """
                 }
             }
         }
     }
+
     post {
         always {
             sh "docker image prune -f"
