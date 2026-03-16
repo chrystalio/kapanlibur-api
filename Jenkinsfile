@@ -1,18 +1,42 @@
 pipeline {
     agent any
     environment {
-        DOCKER_USER = "chrystalio"
-        IMAGE_NAME = "kapanlibur-api"
+        APP_NAME = "kapanlibur-api"
+        IMAGE_NAME = "${env.DOCKER_HUB_USER}/${APP_NAME}"
+        TARGET_NODE = "${env.DEPLOY_TARGET_IP}"
+        SSH_CREDS = "jenkins-deploy-ssh"
     }
     stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
         stage('Build & Push') {
             steps {
                 script {
+                    dockerImage = docker.build("${IMAGE_NAME}:latest")
                     docker.withRegistry('', 'docker-hub-creds') {
-                        def myImage = docker.build("${DOCKER_USER}/${IMAGE_NAME}:${env.BUILD_NUMBER}")
-                        myImage.push()
-                        myImage.push("latest")
+                        dockerImage.push()
                     }
+                }
+            }
+        }
+        stage('Deploy (via SSH)') {
+            steps {
+                sshagent([SSH_CREDS]) {
+                    sh """
+                        ssh -o StrictHostKeyChecking=no jenkins-deploy@${TARGET_NODE} "
+                            docker pull ${IMAGE_NAME}:latest && \
+                            docker stop ${APP_NAME} || true && \
+                            docker rm ${APP_NAME} || true && \
+                            docker run -d \
+                                --name ${APP_NAME} \
+                                -p 3000:3000 \
+                                --restart unless-stopped \
+                                ${IMAGE_NAME}:latest
+                        "
+                    """
                 }
             }
         }
@@ -20,6 +44,9 @@ pipeline {
     post {
         always {
             sh "docker image prune -f"
+        }
+        success {
+            echo "Successfully deployed to http://${TARGET_NODE}:3000"
         }
     }
 }
