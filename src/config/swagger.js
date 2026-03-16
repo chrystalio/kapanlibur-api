@@ -35,12 +35,8 @@ const options = {
         },
         servers: [
             {
-                url: 'https://kapanliburapi.krisdev.my.id',
+                url: 'https://kapanlibur-api.krisdev.my.id',
                 description: 'Production server'
-            },
-            {
-                url: 'http://localhost:3000',
-                description: 'Development server'
             }
         ],
         components: {
