@@ -103,7 +103,7 @@ app.get('/health', (req, res) => {
 app.get('/', (req, res) => {
     res.json({
         name: 'KapanLibur API',
-        version: '1.1.0',
+        version: '1.2.0',
         description: 'API untuk informasi hari libur nasional Indonesia',
         description_en: 'API for Indonesian national holiday information',
         author: 'Chrystalio (Kristoff)',
