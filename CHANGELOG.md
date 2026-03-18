@@ -7,11 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Planned
-- Additional language translations
-- Rate limiting per language preferences
-
 ## [Released]
+
+## v1.2.1 (2026-03-18)
+
+### Fixed
+
+- `GET /v1/holidays/next` now correctly returns the next holiday after the reference date, excluding the reference date itself. Previously used `>=` comparison which incorrectly returned today's holiday as "next" when today was a holiday.
+- Rate limiting now correctly applies per client IP instead of globally. Added `trust proxy` setting and `ipKeyGenerator` to properly handle requests behind proxies (Vercel, Cloudflare) and prevent IPv6 bypass attempts.
 
 ## v1.2.0 (2026-03-15)
 
