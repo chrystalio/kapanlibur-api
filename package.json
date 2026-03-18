@@ -1,6 +1,6 @@
 {
   "name": "kapanlibur-api",
-  "version": "1.2.0",
+  "version": "1.2.2",
   "description": "API untuk informasi hari libur nasional Indonesia",
   "main": "src/server.js",
   "scripts": {
