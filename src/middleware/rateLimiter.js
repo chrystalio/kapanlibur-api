@@ -1,13 +1,14 @@
 const rateLimit = require('express-rate-limit');
-const { ipKeyGenerator } = require('express-rate-limit');
 const { tError } = require('../utils/translator');
 
 const rateLimiter = rateLimit({
     windowMs: 15 * 60 * 1000,
     max: 100,
     standardHeaders: true,
-    // Use real client IP with proper IPv6 handling
-    keyGenerator: ipKeyGenerator,
+    // Use CF-Connecting-IP header for Cloudflare Tunnel, fallback to req.ip
+    keyGenerator: (req) => {
+        return req.headers['cf-connecting-ip'] || req.ip;
+    },
     handler: (req, res) => {
         const lang = req.language || 'id';
         res.status(429).json({
