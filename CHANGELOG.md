@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Released]
 
+## v1.2.3 (2026-03-19)
+
+### Fixed
+
+- Date helpers now correctly handle WIB (Asia/Jakarta) timezone regardless of server timezone. This ensures `GET /v1/holidays/next` returns the correct next holiday for Indonesian users even when the server runs in UTC.
+
 ## v1.2.2 (2026-03-19)
 
 ### Added
