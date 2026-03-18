@@ -10,6 +10,9 @@ const { errorHandler, notFoundHandler } = require('./middleware/errorHandler');
 
 const app = express();
 
+// Trust proxy for accurate client IP behind Vercel/Cloudflare/etc.
+app.set('trust proxy', true);
+
 app.use(helmet({
     contentSecurityPolicy: false,
     crossOriginEmbedderPolicy: false

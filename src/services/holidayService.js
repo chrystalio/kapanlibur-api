@@ -32,7 +32,7 @@ const getAllHolidays = (filters = {}, lang = 'id') => {
 const getNextHoliday = (referenceDate = new Date(), lang = 'id') => {
     const holidays = loadHolidays();
     const referenceDateFormatted = formatDate(referenceDate);
-    const upcomingHoliday = holidays.find(holiday => holiday.date >= referenceDateFormatted);
+    const upcomingHoliday = holidays.find(holiday => holiday.date > referenceDateFormatted);
     const language = lang || 'id';
 
     if (!upcomingHoliday) {
