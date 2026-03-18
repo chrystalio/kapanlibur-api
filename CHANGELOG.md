@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Released]
 
+## v1.2.2 (2026-03-19)
+
+### Added
+
+- Cache control headers (`Cache-Control`, `Pragma`, `Expires`) to all `/v1` API routes to prevent Cloudflare and other intermediaries from caching responses. This ensures users always receive fresh data and prevents stale responses after deployments.
+
 ## v1.2.1 (2026-03-18)
 
 ### Fixed

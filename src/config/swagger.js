@@ -7,7 +7,7 @@ const options = {
         openapi: '3.0.0',
         info: {
             title: 'KapanLibur API',
-            version: '1.2.0',
+            version: '1.2.2',
             description: `
                 API untuk informasi hari libur nasional Indonesia.
 

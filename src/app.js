@@ -23,9 +23,15 @@ app.use(requestLogger);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Language detection (must be before rateLimiter for translated error messages)
 app.use(languageHandler);
 app.use(rateLimiter);
+
+app.use('/v1', (req, res, next) => {
+    res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, private');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
+    next();
+});
 
 app.get('/docs/swagger.json', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
