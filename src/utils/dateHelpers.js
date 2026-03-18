@@ -1,18 +1,28 @@
+// WIB timezone offset (UTC+7)
+const WIB_OFFSET_MS = 7 * 60 * 60 * 1000;
+
+// Format date as YYYY-MM-DD in WIB timezone (works regardless of server timezone)
 const formatDate = (date) => {
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const day = String(date.getDate()).padStart(2, '0');
+    const wibTimestamp = date.getTime() + WIB_OFFSET_MS;
+    const wibDate = new Date(wibTimestamp);
+
+    const year = wibDate.getUTCFullYear();
+    const month = String(wibDate.getUTCMonth() + 1).padStart(2, '0');
+    const day = String(wibDate.getUTCDate()).padStart(2, '0');
     return `${year}-${month}-${day}`;
 }
 
 const isWeekend = (date) => {
-    const dayOfWeek = date.getDay();
+    const wibTimestamp = date.getTime() + WIB_OFFSET_MS;
+    const wibDate = new Date(wibTimestamp);
+
+    const dayOfWeek = wibDate.getUTCDay();
     return dayOfWeek === 0 || dayOfWeek === 6;
 }
 
 const getDayName = (dateInput, lang = 'id') => {
     const date = typeof dateInput === 'string' ? parseDate(dateInput) : dateInput;
-    return date.toLocaleDateString(lang, { weekday: 'long' });
+    return date.toLocaleDateString(lang, { timeZone: 'Asia/Jakarta', weekday: 'long' });
 }
 
 const getDayNameIndonesian = (date) => {
