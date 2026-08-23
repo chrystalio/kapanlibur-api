@@ -12,6 +12,13 @@ const generateSuggestions = (year = new Date().getFullYear(), maxLeaveDays = 5, 
         const weekendInfo = isHolidayNearWeekend(holiday, language);
 
         if (weekendInfo.isNearWeekend) {
+            // suggestedDay can be null (free Monday) or array (Wed: Mon+Tue)
+            const suggestedLeaveDates = weekendInfo.suggestedDay === null
+                ? []
+                : Array.isArray(weekendInfo.suggestedDay)
+                    ? weekendInfo.suggestedDay
+                    : [weekendInfo.suggestedDay];
+
             suggestions.push({
                 holiday: {
                     date: holiday.date,
@@ -19,7 +26,7 @@ const generateSuggestions = (year = new Date().getFullYear(), maxLeaveDays = 5, 
                     name: holiday.name[language] || holiday.name['id'],
                     is_joint: holiday.is_joint
                 },
-                suggested_leave_dates: [weekendInfo.suggestedDay],
+                suggested_leave_dates: suggestedLeaveDates,
                 leave_days_required: weekendInfo.leaveDaysRequired,
                 total_days_off: weekendInfo.totalDaysOff,
                 period: {
@@ -62,7 +69,7 @@ const generateSuggestions = (year = new Date().getFullYear(), maxLeaveDays = 5, 
         return efficiencyB - efficiencyA;
     });
 
-    return suggestions.filter(s => s.leave_days_required > 0 && s.leave_days_required <= maxLeaveDays);
+    return suggestions.filter(s => s.leave_days_required <= maxLeaveDays);
 }
 
 const isHolidayNearWeekend = (holiday, lang = 'id') => {
@@ -105,6 +112,64 @@ const isHolidayNearWeekend = (holiday, lang = 'id') => {
             totalDaysOff: 4,
             leaveDaysRequired: 1,
             reason: tSuggestion('friday_before_weekend', language),
+        }
+    }
+
+    if (dayOfWeek === 1) {
+        // Holiday is Monday — natural 3-day weekend (Sat + Sun + Mon).
+        // No leave required, but worth surfacing as a top suggestion.
+        const startDate = new Date(date);
+        startDate.setDate(date.getDate() - 2); // Saturday
+
+        return {
+            isNearWeekend: true,
+            suggestedDay: null,
+            periodStart: formatDate(startDate),
+            periodEnd: formatDate(date),
+            totalDaysOff: 3,
+            leaveDaysRequired: 0,
+            reason: tSuggestion('monday_after_weekend', language),
+        }
+    }
+
+    if (dayOfWeek === 2) {
+        // Holiday is Tuesday — take Monday off to bridge weekend with holiday.
+        const startDate = new Date(date);
+        startDate.setDate(date.getDate() - 3); // Saturday
+
+        const suggestedDate = new Date(date);
+        suggestedDate.setDate(date.getDate() - 1); // Monday
+
+        return {
+            isNearWeekend: true,
+            suggestedDay: formatDate(suggestedDate),
+            periodStart: formatDate(startDate),
+            periodEnd: formatDate(date),
+            totalDaysOff: 4,
+            leaveDaysRequired: 1,
+            reason: tSuggestion('tuesday_after_weekend', language),
+        }
+    }
+
+    if (dayOfWeek === 3) {
+        // Holiday is Wednesday — take Mon + Tue off for a 5-day weekend.
+        const startDate = new Date(date);
+        startDate.setDate(date.getDate() - 4); // Saturday
+
+        const suggestedDate1 = new Date(date);
+        suggestedDate1.setDate(date.getDate() - 2); // Monday
+
+        const suggestedDate2 = new Date(date);
+        suggestedDate2.setDate(date.getDate() - 1); // Tuesday
+
+        return {
+            isNearWeekend: true,
+            suggestedDay: [formatDate(suggestedDate1), formatDate(suggestedDate2)],
+            periodStart: formatDate(startDate),
+            periodEnd: formatDate(date),
+            totalDaysOff: 5,
+            leaveDaysRequired: 2,
+            reason: tSuggestion('wednesday_after_weekend', language),
         }
     }
 

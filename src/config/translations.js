@@ -58,9 +58,13 @@ const translations = {
         en: "Holiday is on Friday, take Monday off for a 4-day weekend",
         id: "Hari libur jatuh pada Jumat, ambil cuti Senin untuk liburan 4 hari"
       },
+      monday_after_weekend: {
+        en: "Holiday is on Monday — enjoy a free 3-day weekend",
+        id: "Hari libur jatuh pada Senin — nikmati libur akhir pekan 3 hari tanpa cuti"
+      },
       tuesday_after_weekend: {
-        en: "Holiday is on Tuesday, take Monday off for a 3-day weekend",
-        id: "Hari libur jatuh pada Selasa, ambil cuti Senin untuk liburan 3 hari"
+        en: "Holiday is on Tuesday, take Monday off for a 4-day weekend",
+        id: "Hari libur jatuh pada Selasa, ambil cuti Senin untuk liburan 4 hari"
       },
       wednesday_after_weekend: {
         en: "Holiday is on Wednesday, take Monday and Tuesday off for a 5-day weekend",
